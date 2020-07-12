@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+
+
+{% block title %}
+{% if  treatment == "VC" %}
+    <h1> Contribute ( Round {{ round_number }} of {{Constants.num_rounds}})<h1>
+  {% else %}
+  <h1> Withdrawal ( Round {{ round_number }} of {{Constants.num_rounds}})<h1>
+
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container p-3 my-3 border" style="font-size:18pt">
+
+{% if  treatment == "VC" %}
+    {% formfield player.choice label="How much do you contribute to the common project?" %}
+{% else %}
+    {% formfield player.choice label="How much do you withdraw from the common project?" %}
+{% endif %}
+
+<small>An integer number between 0 and {{endowment}}</small>
+
+</div>
+
+
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:18pt">Continue</span>
+     </button>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

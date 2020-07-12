@@ -1,0 +1,63 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Results ( Round {{ round_number }} of {{Constants.num_rounds}})
+{% endblock %}
+
+{% block content %}
+
+<div class="container p-3 my-3 border" style="font-size:18pt">
+{% if treatment == "VC" %}
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+        <tr><td>You contributed:</td><td>{{ player.choice }}</td></tr>
+        <tr><td>Other participants contributed:</td><td></td></tr>
+        {% for p in player.get_others_in_group %}
+            <tr><td></td><td>{{ p.choice }}</td></tr>
+        {% endfor %}
+        <tr><td>Total contribution:</td><td>{{ group.total_choices }}</td></tr>
+        <tr><td colspan="2"><hr/></td></tr>
+        <tr><td>Total earnings from the project:</td><td>{{ group.total_earnings }}</td></tr>
+        <tr><td>Your earnings from the project:</td><td>{{ group.individual_share }}</td></tr>
+        <tr><td colspan="2"><hr/></td></tr>
+        <tr><td>Thus in total you earned:</td><td>{{ player.payoff }}</td></tr>
+    </table>
+{% else %}
+    <table class="table-condensed" style="width:500px; margin-top:20px;">
+        <tr><td>You withdrew:</td><td>{{ player.choice }}</td></tr>
+        <tr><td>Other participants withdrew:</td><td></td></tr>
+        {% for p in player.get_others_in_group %}
+            <tr><td></td><td>{{ p.choice }}</td></tr>
+        {% endfor %}
+        <tr><td>Total withdrawals:</td><td>{{ group.total_choices }}</td></tr>
+        <tr><td colspan="2"><hr/></td></tr>
+        <tr><td>Total earnings from the project:</td><td>{{ group.total_earnings }}</td></tr>
+        <tr><td>Your earnings from the project:</td><td>{{ group.individual_share }}</td></tr>
+        <tr><td colspan="2"><hr/></td></tr>
+        <tr><td>Thus in total you earned:</td><td>{{ player.payoff }}</td></tr>
+    </table>
+    {% endif %}
+</div>
+
+
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:18pt">Continue</span>
+     </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

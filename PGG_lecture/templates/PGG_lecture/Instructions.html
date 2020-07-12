@@ -1,0 +1,82 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+  <h1>  Instructions </h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="container p-3 my-3 border" style="font-size:18pt">
+
+<h2> The interaction</h2>
+
+{% if treatment == "VC" %} <!-- VC -->
+<p>In this study, you will be in a randomly formed group of {{ Constants.players_per_group }} participants. </p>
+<p> You will be matched together for the entire study </p>
+<p>Each participant in the group is given {{ Constants.endowment }}. </p>
+<p>Each participant in the group decides how much she or he is going to contribute to a common project.</p>
+<p>Contributions could be any integer between 0 to {{ Constants.endowment }}.</p>
+
+<h2> Your payoff </h2>
+<p> The earnings from the project are calculated as follows:
+<ul>
+  <li>
+  The contributions of all {{ Constants.players_per_group }} participants are added up.</li>
+  <li>
+    The sum of contributions is multiplied by a factor of {{ Constants.multiplier }}: these are the <i>total returns from the project</i>.
+  </li>
+  <li>
+    <i>Total returns from the project</i> are then evenly split among all {{ Constants.players_per_group }}  participants: : these are <i>your earnings from the project</i>.
+  </li>
+</ul>
+<p><i>Your payoff</i> is given by your earnings from the project, plus the amount you did not contribute.</p>
+
+<p> You will repeat this choice {{Constants.num_rounds}} times. </p>
+
+{% else %} <!-- CP -->
+
+<p>In this study, you will be in a randomly formed group of {{ Constants.players_per_group }} participants. </p>
+<p> Your group is endowed with a common project of {{ common_proj }}. </p>
+<p>Each participant in the group decides how much she or he is going to withdraw from the common project.</p>
+<p>Withdrawals could be any integer between 0 to {{ Constants.endowment }}.</p>
+
+<h2> Your payoff </h2>
+<p> The earnings from the project are calculated as follows:
+<ul>
+  <li>
+  The withdrawals of all {{ Constants.players_per_group }} participants are added up.</li>
+  <li>
+    The sum of withdrawals is subtracted from the common project and the resulting amount is multiplied by a factor of  {{ Constants.multiplier }}: these are the <i>total returns from the project</i>.
+  </li>
+  <li>
+    <i>Total returns from the project</i> are then evenly split among all {{ Constants.players_per_group }}  participants: these are <i>your earnings from the project</i>.
+  </li>
+</ul>
+<p><i>Your payoff</i> is given by your earnings from the project, plus the amount you withdrew from the project.</p>
+
+<p> You will repeat this choice {{Constants.num_rounds}} times. </p>
+
+
+{% endif %}
+
+</div>
+
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:18pt">Continue</span>
+     </button>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
