@@ -1,0 +1,255 @@
+---
+title: "PGG"
+author: "Matteo Ploner"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+output:
+
+  prettydoc::html_pretty:
+    theme: leonids #hpstr #tactile #hpstr
+    highlight: github
+
+  html_document:
+    number_sections: true
+    toc: true # table of content true
+    toc_depth: 3  # upto three depths of headings (specified by #, ## and ###)
+    toc_float: true
+    theme: cosmo  #united; paper; cerulean
+    highlight: tango  # specifies the syntax highlighting style
+
+  ioslides_presentation:
+    toc: yes
+    toc_depth: 2
+    incremental: no
+    smaller: no
+    widescreen: yes
+    duration: 90
+    self_contained: yes
+
+  slidy_presentation:
+    footer: "FOOTER"
+    duration: 90
+    self_contained: yes
+
+  beamer_presentation: default
+
+  revealjs::revealjs_presentation:
+    reveal_options:
+      slideNumber: true
+      previewLinks: false
+      controls: false
+      navigationMode: linear #grid, default
+    theme: sky #“default”, “simple”, “sky”, “beige”, “serif”, “solarized”, “blood”, “moon”, “night”, “black”, “league” or “white”
+    highlight: pygments
+    slideNumber: true
+
+  pdf_document:
+    keep_tex: true
+    number_sections: true
+    df_print: kable
+documentclass: article
+fontsize: 11pt
+geometry: margin=1in
+
+#css: PATHto/.css
+#bibliography: PATHto/.bib
+---
+
+```{r load_libraries, include=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+#------------------------------------
+#INPUT HERE
+setwd("") # set her eyour working directory
+filelist = list.files(pattern="*.csv$")
+
+session.code.interest <- "" #input here the session code you are interested in
+#------------------------------------
+```
+
+# Sample  {.tabset .tabset-fade .tabset-pills}
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+
+# Read your data
+dt <- read_csv(filelist) %>% filter(session.code==session.code.interest)
+# participant.code
+# player.choice
+# group.total_choices
+# subsession.round_number
+# player.payoff
+```
+
+
+## Dataset
+
+```{r, warning=FALSE, message=FALSE, fig.height=4, fig.width=9, fig.align="center"}
+kable(dt) %>%
+            kable_styling(font_size=12) %>%
+            scroll_box(width = "800px", height = "400px")
+```
+
+## Stats
+
+```{r preparatory, warning=FALSE, message=FALSE, fig.height=4, fig.width=9, fig.align="center"}
+
+#Here some  preparatory work on the data
+# Rename treatments, more self-explanatory
+dt <- dt %>%
+      mutate(
+        player.treatment = ifelse(player.treatment=="VC", "Voluntary Contribution", "Common Pool")
+      )
+#rename treatment variable
+dt <- dt %>%
+      rename(
+        Treatment = player.treatment
+      )
+# modify variable type
+dt <- dt %>%
+      mutate(
+        participant.code = as.factor(participant.code),
+        Treatment = as.factor(Treatment),
+        session.code = as.factor(session.code)
+      )
+# unique group identifier (session level as it is partner match)
+dt <- dt %>%
+      mutate(group.id=paste(session.code,"_",group.id_in_subsession,sep=""))
+
+# need to create a common unit of observation
+dt <- dt %>% mutate(Contribution=ifelse(Treatment=="Voluntary Contribution",player.choice,100-player.choice))
+
+# remove useless columns
+dt <- dt %>%
+      select(-group.id_in_subsession,-participant._is_bot,-participant.id_in_session)
+# Total number of participants
+dt %>% distinct(participant.code) %>% count() %>% kable(caption=c("Total number of participants"), col.names=c("n"))
+
+# Participants per session
+dt %>% group_by(session.code) %>% distinct(participant.code) %>% count() %>% kable(caption=c("Participants per session"))
+
+# Participants per treatment
+dt %>% group_by(Treatment) %>% distinct(participant.code) %>% count() %>% kable(caption=c("Participants per treatment"))
+```
+
+## Results
+
+### Overall
+
+#### Descriptives
+
+```{r, warning=FALSE, message=FALSE, fig.height=4, fig.width=9, fig.align="center"}
+
+dt %>%  group_by(Treatment) %>%
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%
+        mutate(Mean=round(Mean,3),Median=round(Median,3),SD=round(SD,3)) %>%
+        kable() %>%
+        kable_styling(font_size=12,bootstrap_options = c("striped", "hover", "condensed", "responsive"),full_width=F)
+```
+
+#### Individual contributions
+
+```{r, warning=FALSE, message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+# individual observations
+p <-
+ggplot(dt,
+      aes(x=as.factor(""),y=Contribution,fill=Treatment,color=Treatment))+
+      geom_jitter(alpha=.5,width=.3,height=.3)
+# boxplot
+p.1 <- p + geom_boxplot(alpha=.5)
+# stats
+p.2 <- p.1 + stat_summary(fun.y=base::mean, geom="point",
+              aes(group=c(Treatment)),
+              position=position_dodge(.9),
+              color="blue",
+              shape=23,
+              fill="white",
+              size=3,
+              alpha=.9)
+# aestetics
+
+p.2 +
+theme_bw()+
+facet_wrap(~Treatment)+
+#  scale_color_manual(values = getPalette)+
+labs(title="Individual contributions to PG",
+    subtitle="By treatment ",
+    y = "Contribution to PG",
+    x= "")+
+theme(legend.position="none",
+      axis.text=element_text(size=8),
+      axis.title=element_text(size=14,face="bold"),
+      axis.text.x = element_text(size=10)) #axis
+
+```
+
+### Dynamics
+
+```{r, warning=FALSE, message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+dt %>%  group_by(Treatment, subsession.round_number) %>%
+        summarise_at("Contribution",
+                    list(N=~n(),
+                    Mean=~mean(.),
+                    Median=~median(.),
+                    SD=~sd(.))
+                    ) %>%
+        mutate(
+              Mean=round(Mean,3),
+              Median=round(Median,3),
+              SD=round(SD,3)
+              ) %>%
+        mutate(M_SD=paste(Mean," (",SD,")",sep="")) %>%
+        select(subsession.round_number,M_SD) %>%
+        spread(subsession.round_number,M_SD)%>%
+        kable(caption="Average contributions per period (SD in parenthesis)",) %>%
+        kable_styling(font_size=12,
+          bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+          full_width=F)
+```
+
+#### Individual contributions by period
+
+```{r, warning=FALSE, message=FALSE, fig.height=5, fig.width=9, fig.align="center"}
+ggplot(dt,
+          aes(x=subsession.round_number,y=Contribution,fill=Treatment,color=Treatment))+
+          geom_jitter(alpha=.5,width=.3,height=.3)+
+          geom_smooth(fill="grey55")+
+          ylim(0,100)+
+          theme_bw()+
+          facet_wrap(~Treatment)+
+          scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+
+          labs(title="Individual contributions to PG",
+              subtitle="By treatment and round",
+              y = "Average contribution to PG",
+              x= "Round")+
+          theme(legend.position="none",
+                axis.text=element_text(size=8),
+                axis.title=element_text(size=14,face="bold"),
+                axis.text.x = element_text(size=10)) #axis
+```
+
+#### Average contributions
+
+```{r, warning=FALSE, message=FALSE, fig.height=5, fig.width=9, fig.align="center"}
+
+dt %>%  group_by(Treatment, subsession.round_number) %>%
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%
+        mutate(SEM=SD/sqrt(N)) %>%
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+
+        geom_line(alpha=.7)+
+        geom_point()+
+        theme_bw()+
+        geom_errorbar(mapping=aes(x=subsession.round_number, ymin=Mean-SEM, ymax=Mean+SEM), width=0.5, alpha=.7)+
+        scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+
+        labs(title="Average contributions to PG",
+            subtitle="By treatment and round",
+            y = "Average contribution to PG",
+            x= "Round")+
+        theme(legend.position="bottom",
+              axis.text=element_text(size=8),
+              axis.title=element_text(size=14,face="bold"),
+              axis.text.x = element_text(size=10)) #axis
+
+```
