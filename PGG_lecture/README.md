@@ -57,4 +57,4 @@ page_sequence = [Instructions, Contribute, ResultsWaitPage, Results, FinalResult
 
 ## Output Analysis
 
-The RMarkdown file that generates an analysis of the output can be found in [PGG.Rmd](./DATA/PGG.Rmd) 
+The RMarkdown file that generates an analysis of the output can be found in [PGG.Rmd](./DATA/PGG.Rmd)

@@ -1,0 +1,1779 @@
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("key","value",2:3)%>%#
+ggplot(aes(x=Category,y=value,fill=key))+#
+geom_line()
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("key","value",2:3)%>%#
+ggplot(aes(x=Category,y=value,fill=key,group=key))+#
+geom_line()
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("key","value",2:3)%>%#
+ggplot(aes(x=key,y=value,fill=Category,group=Category))+#
+geom_line()#
+geom_col(position = "dodge")+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Category",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="none",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(angle = 90, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("key","value",2:3)%>%#
+ggplot(aes(x=key,y=value,color=Category,group=Category))+#
+geom_line()#
+geom_col(position = "dodge")+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Category",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="none",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(angle = 90, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category))+#
+geom_line()#
+geom_col(position = "dodge")+#
+theme_bw()
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category))+#
+geom_line()+#
+geom_col(position = "dodge")+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Category",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="none",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(angle = 90, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category))+#
+geom_line()+#
+geom_point()+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Category",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="none",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(angle = 90, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category))+#
+geom_line(size=3)+#
+geom_point(size=3)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="none",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(angle = 90, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category))+#
+geom_line(size=3)+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="none",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(angle = 90, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category))+#
+geom_line(size=3)+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="none",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(size=14, angle = 45, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category))+#
+geom_line(size=3)+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="right",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(size=14, angle = 45, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category,pch=Category))+#
+geom_line(size=3)+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="right",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(size=14, angle = 45, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category,pch=Category))+#
+geom_line(size=1)+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="right",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(size=14, angle = 45, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category,pch=Category))+#
+geom_line(size=1)+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill=Category,#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="right",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(size=14, angle = 45, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category,pch=Category))+#
+geom_line(size=1)+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="Category",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="right",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(size=14, angle = 45, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category,pch=Category))+#
+geom_line(size=1,color="grey78")+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="TITLE HERE",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="Category",#
+    caption="@kaustia2008much")+ # labels#
+theme(legend.position="right",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(size=14, angle = 45, hjust = 1,vjust=0.5))
+tibble(Category=c("Professionals","Students"),High=c(9.19,14.14),Low=c(7.38,6.74)) %>% gather("Condition","value",2:3)%>%#
+ggplot(aes(x=Condition,y=value,color=Category,group=Category,pch=Category))+#
+geom_line(size=1,color="grey78")+#
+geom_point(size=5)+#
+theme_bw() +#
+labs(title="",#
+    subtitle="",#
+    y = "Value",#
+    x= "Condition",#
+    fill="Category",#
+    caption="Source: Personal elaboration on Kaustia et al., 2008")+ # labels#
+theme(legend.position="right",#
+     axis.text=element_text(size=8),#
+     axis.title=element_text(size=14,face="bold"),#
+     axis.text.x = element_text(size=14, angle = 45, hjust = 1,vjust=0.5))
+fun.1 <- function(x) -x^2 + x#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,5)
+p
+p + stat_function(fun = fun.1) + xlim(-5,5)
+p + stat_function(fun = fun.1) + xlim(-5,1)
+p + stat_function(fun = fun.1) + xlim(-5,0)
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+labs(title="Mean/Variance",y = "Return",#
+x= "Variance")+#
+theme(legend.position="none")
+fun.1 <- function(x) -x^2 + x#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_empty()+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+fun.1 <- function(x) -x^2 + x#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
++ geom_curve(#
+  aes(x = -5, y = 0, xend = 0, yend = 0),#
+  data = df,#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+fun.1 <- function(x) -x^2 + x#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_curve(#
+  aes(x = -5, y = 0, xend = 0, yend = 0),#
+  data = df,#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_curve(#
+  aes(x = -5, y = 0, xend = 0, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_line(#
+  aes(x = -5, y = 0, xend = 0, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = 0, xend = 0, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p
+fun.1 <- function(x) -x^2 + x#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+fun.1 <- function(x) -x^2 #
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = 0, xend = -25, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)
+fun.1 <- function(x) -x^2 #
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = 0, xend = -5, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+fun.1 <- function(x) -x^2#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+fun.1 <- function(x) -x^2#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,-1) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+fun.1 <- function(x) -x^2#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,-1) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -1, y = -25, xend = -1, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+fun.1 <- function(x) -x^2#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+fun.1 <- function(x) -x^2#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+annotate("text",x=-5,y=-10,label="Return")+#
+annotate("text",x=-2,y=-25,label="Variance")+#
+labs(title="Mean/Variance",#
+y = "Return",#
+x= "Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+annotate("text",x=-5,y=-10,label="Return")+#
+annotate("text",x=-2,y=-26,label="Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+annotate("text",x=-6,y=-10,label="Return")+#
+annotate("text",x=-2,y=-26,label="Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-6,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+annotate("text",x=-6,y=-10,label="Return")+#
+annotate("text",x=-2,y=-26,label="Variance")
+fun.1 <- function(x) -x^2#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-6,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+annotate("text",x=-5.5,y=-10,label="Return")+#
+annotate("text",x=-2,y=-26,label="Variance")
+fun.1 <- function(x) -x^2#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+annotate("text",x=-5.5,y=-10,label="Return")+#
+annotate("text",x=-2,y=-26,label="Variance")
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+annotate("text",x=-4.5,y=-10,label="Return")+#
+annotate("text",x=-2,y=-26,label="Variance")
+fun.1 <- function(x) -x^2#
+#
+p <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))#
+p + stat_function(fun = fun.1) + xlim(-5,0) + theme_void()+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = 0, yend = -25),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+geom_segment(#
+  aes(x = -5, y = -25, xend = -5, yend = 0),#
+  arrow = arrow(length = unit(0.03, "npc"))#
+)+#
+annotate("text",x=-4.5,y=-10,label="Return")+#
+annotate("text",x=-2,y=-24,label="Variance")
+tibble(urn=array("X",6),label=seq(1,6))
+library(tidyverse)
+tibble(urn=array("X",6),label=seq(1,6))
+tibble(urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G")))
+tibble(urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=1:6,y=1,fill=label))+#
+grom_point(size=6)
+tibble(urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=1:6,y=1,fill=label))+#
+geom_point(size=6)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G")))
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label))+#
+geom_point(size=6)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label))+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(.~urn)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(.~urn)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,6),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(seq(1,1),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+geom_rect()+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=1)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2)+#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2)+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+help(geom_rect())
+help(geom_rect()
+)
+help(geom_rect)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_tile(xmin=0, xmax=7, ymin=0, ymax=2)+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=0.1, xmax=6.9, ymin=0.1, ymax=1.9,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=1, xmax=6.9, ymin=0.1, ymax=1.9,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=.9, xmax=6.9, ymin=0.1, ymax=1.9,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=.9, xmax=6.1, ymin=0.1, ymax=1.9,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=.9, xmax=6.1, ymin=0.9, ymax=1.9,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=.9, xmax=6.1, ymin=0.9, ymax=1.1,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=.9, xmax=6.1, ymin=1, ymax=1.1,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label,size=5))+#
+geom_rect(xmin=.9, xmax=6.1, ymin=1, ymax=1.,fill="white",color="black")+#
+geom_point(size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=.9, xmax=6.1, ymin=1, ymax=1.,fill="white",color="black")+#
+geom_point(size=10)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=.9, xmax=6.1, ymin=1, ymax=1.,fill="white",color="black")+#
+geom_point(size=20)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=.9, xmax=6.1, ymin=1, ymax=1.,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+geom_point(size=20)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+#
+geom_point(size=20)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_text()+#
+geom_point(size=20)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_text()+#
+geom_point(size=20)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+geom_text()+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+annotate("text",x=1,y=1,label="T")+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+annotate("text",x=1:6,y=1,label="T")+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+annotate("text",x=1:6,y=1:6,label=1:6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+geom_text()+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+geom_text(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+geom_text(aes(x=pos,y=1,label=label))+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6,1:6),urn=c(array("X",6),array("A",6),array("B",6)),label=c(c("W","W","W","W","W","W"),c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+geom_text(aes(x=pos,y=1,label=label),color="black")+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6),urn=c(array("X",6)),label=c("1","2","3","4","5","6")) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+geom_text(aes(x=pos,y=1,label=label),color="black")+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6),urn=c(array("X",6)),label=c("1","2","3","4","5","6")) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+geom_text(aes(x=pos,y=1,label=label),color="black")+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6),urn=c(array("X",6)),label=c("1","2","3","4","5","6")) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=20)+#
+geom_text(aes(x=pos,y=1,label=label),color="white")+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6),urn=c(array("X",6)),label=c("1","2","3","4","5","6")) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=30)+#
+geom_text(aes(x=pos,y=1,label=label),color="white")+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6),urn=c(array("A",6),array("B",6)),label=c(c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=30)+#
+geom_text(aes(x=pos,y=1,label=label),color="black")+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6),urn=c(array("A",6),array("B",6)),label=c(c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=30)+#
+geom_text(aes(x=pos,y=1,label=label),color="black",size=4)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6),urn=c(array("A",6),array("B",6)),label=c(c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=30)+#
+geom_text(aes(x=pos,y=1,label=label),color="black",size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)
+tibble(pos=c(1:6,1:6),urn=c(array("A",6),array("B",6)),label=c(c("N","N","N","N","G","G"),c("N","N","N","G","G","G"))) %>%#
+ggplot(aes(x=pos,y=1,fill=label,label=label,color=label))+#
+geom_rect(xmin=0, xmax=7, ymin=0, ymax=2,fill="white",color="black")+#
+scale_x_continuous(limits=c(0,7))+#
+scale_y_continuous(limits=c(0,2))+#
+geom_point(size=30)+#
+geom_text(aes(x=pos,y=1,label=label),color="black",size=6)+#
+theme_void()+#
+facet_wrap(urn~.,ncol=1)+#
+theme(legend.position="none")
+tibble(attribute_1=c(1,2,3),attribute_2=c(3,2,1),label=c("x","y","z"))%>%#
+ggplot(aes(x=attribute_1,y=attribute_2))+#
+geom_points()+#
+geom_line()
+library(tidyverse)
+tibble(attribute_1=c(1,2,3),attribute_2=c(3,2,1),label=c("x","y","z"))%>%#
+ggplot(aes(x=attribute_1,y=attribute_2))+#
+geom_points()+#
+geom_line()
+tibble(attribute_1=c(1,2,3),attribute_2=c(3,2,1),label=c("x","y","z"))%>%#
+ggplot(aes(x=attribute_1,y=attribute_2))+#
+geom_point()+#
+geom_line()
+tibble(attribute_1=c(1,2,3),attribute_2=c(3,2,1),label=c("x","y","z"))%>%#
+ggplot(aes(x=attribute_1,y=attribute_2))+#
+geom_point()+#
+geom_line()+#
+geom_text(color="white")+#
+theme_void()
+tibble(attribute_1=c(1,2,3),attribute_2=c(3,2,1),label=c("x","y","z"))%>%#
+ggplot(aes(x=attribute_1,y=attribute_2,label=label))+#
+geom_point()+#
+geom_line()+#
+geom_text(color="white")+#
+theme_void()
+tibble(attribute_1=c(1,2,3),attribute_2=c(3,2,1),label=c("x","y","z"))%>%#
+ggplot(aes(x=attribute_1,y=attribute_2,label=label))+#
+geom_point(size=5)+#
+geom_line()+#
+geom_text(color="white")+#
+theme_void()
+tibble(attribute_1=c(1,2,3),attribute_2=c(3,2,1),label=c("x","y","z"))%>%#
+ggplot(aes(x=attribute_1,y=attribute_2,label=label))+#
+geom_point(size=10)+#
+geom_line()+#
+geom_text(color="white")+#
+theme_bw()
+tibble(attribute_1=c(1,2,2.5,4),attribute_2=c(3,2,1.5,0),label=c("x+","x","y","z"))%>%#
+ggplot(aes(x=attribute_1,y=attribute_2,label=label))+#
+geom_point(size=10)+#
+geom_line()+#
+scale_x_continuous(limits=c(0,4))+#
+scale_y_continuous(limits=c(0,4))+#
+geom_text(color="white")+#
+theme_bw()
+tibble(x_1=1:4,y_1=array(4,1),x_2=1:4,y_2=array(4,2))
+library(reticulate)#
+library(gridExtra)
+tibble(x_1=1:4,y_1=array(4,1),x_2=1:4,y_2=array(4,2))
+library(tidyverse)
+tibble(x_1=1:4,y_1=array(4,1),x_2=1:4,y_2=array(4,2)) %>% gather()
+tibble(x_1=1:4,y_1=array(4,1),x_2=1:4,y_2=array(4,2))
+array(4,1)
+tibble(x_1=1:4,y_1=array(1,4),x_2=1:4,y_2=array(2,4))
+tibble(x_1=1:4,y_1=array(1,4),x_2=1:4,y_2=array(2,4)) %>% gather("key","value",1:4)
+tibble(x=1:4,y=array(1,4),x=1:4,y=array(2,4)) %>% gather("key","value",1:4)
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>% gather("key","value",1:4)
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>% gather("key","value",1:2)
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>% gather("key","value",1:2) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_path()
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>% gather("key","value",1:2)
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>% gather("key","value",1:2) %>%#
+ggplot(aes(x=key,y=value))+#
+geom_path()
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>% gather("key","value",1:2) %>%#
+ggplot(aes(x=key,y=value))+#
+geom_point()
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point()
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point()+#
+scale_y_continuous(limits=c(0,2))
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1)+#
+scale_y_continuous(limits=c(0,3))
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=30)+#
+scale_y_continuous(limits=c(0,3))
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=30)+#
+scale_y_continuous(limits=c(0.5,2.5))+#
+scale_x_continuous(limits=c(0,5))+
+)
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=30)+#
+scale_y_continuous(limits=c(0.5,2.5))+#
+scale_x_continuous(limits=c(0,5))
+tibble(x=c(1:4,1:4),y=c(array(1,4),array(2,4))) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,2.5))+#
+scale_x_continuous(limits=c(0,5))+#
+theme_void()
+tibble(x=c(1,1),y=c(1,2) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,2.5))+#
+scale_x_continuous(limits=c(0,5))+
+)
+tibble(x=c(1,1),y=c(1,2) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+)
+tibble(x=c(1,1),y=c(1,2) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+)
+tibble(x=c(1,1),y=c(1,2)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+tibble(x=c(1,1),y=c(1,2)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,2.5))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+tibble(x=c(1,1),y=c(1,2)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,2.1))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+tibble(x=c(1,1),y=c(1,1.5)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,1.6))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,1.6))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=50)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=50)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()#
+#
+grid(p1)
+grid.arrange(p1)
+grid.arrange(p1,p1)
+grid.arrange(p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=50)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()#
+#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.8,ymax=1.3)#
+theme_void()#
+#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.8,ymax=1.3)+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.8,ymax=1.3,fill="white")+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.8,ymax=1.3,fill="white",color="black")+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=1,ymax=1.1,fill="white",color="black")+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.9,1.2))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=1,ymax=1.1,fill="white",color="black")+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(1,1.1)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(.75,1.25)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(.75,1.25)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(value=c("blue","green"))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(.75,1.25)) %>%#
+ggplot(aes(x=x,y=y))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=1,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(.75,1.25)) %>%#
+ggplot(aes(x=x,y=y,fill=x))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(.75,1.25)) %>%#
+ggplot(aes(x=x,y=y,color=x))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,nrow=1)
+tibble(x=c(1,1),y=c(.75,1.25))
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green")) %>%#
+ggplot(aes(x=x,y=y,color=x))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green")) %>%#
+ggplot(aes(x=x,y=y,color=lab))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()#
+grid.arrange(p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green")) %>%#
+ggplot(aes(x=x,y=y,color=lab))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()+#
+theme(legend.position="none")#
+grid.arrange(p1,p1,p1,p1,nrow=1)
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green"),text=c(1,2)) %>%#
+ggplot(aes(x=x,y=y,color=lab))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+geom_text()+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()+#
+theme(legend.position="none")
+p1
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green"),text=c(1,2)) %>%#
+ggplot(aes(x=x,y=y,color=lab,label=text))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+geom_text()+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()+#
+theme(legend.position="none")
+p1
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green"),text=c(1,2)) %>%#
+ggplot(aes(x=x,y=y,color=lab,label=text))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+geom_text()+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()+#
+theme(legend.position="none")
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green"),text=c(1,2)) %>%#
+ggplot(aes(x=x,y=y,color=lab,label=text))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+geom_text(color="white")+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()+#
+theme(legend.position="none")
+ggplot(aes(x=x,y=y,color=lab,label=text))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+geom_text(color="white")
+p1
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green"),text=c(1,2)) %>%#
+ggplot(aes(x=x,y=y,color=lab,label=text))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+geom_text(color="black")+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()+#
+theme(legend.position="none")
+p1
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green"),text=c(1,2)) %>%#
+ggplot(aes(x=x,y=y,color=lab,label=text))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+geom_text(color="white",size=4)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()+#
+theme(legend.position="none")
+p1
+p1 <- tibble(x=c(1,1),y=c(.75,1.25),lab=c("blue","green"),text=c(1,2)) %>%#
+ggplot(aes(x=x,y=y,color=lab,label=text))+#
+geom_rect(xmin=.1,xmax=1.9,ymin=.5,ymax=1.5,fill="white",color="black")+#
+geom_point(pch=19,size=40)+#
+geom_text(color="white",size=8)+#
+scale_y_continuous(limits=c(0.5,1.5))+#
+scale_x_continuous(limits=c(0,2))+#
+scale_color_manual(values=c("blue","green"))+#
+theme_void()+#
+theme(legend.position="none")
+p1
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+annotate("text",x=1,y=1,label="More Risk Averse")+#
+annotate("text",x=2,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+library(tidyverse)
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+annotate("text",x=1,y=1,label="More Risk Averse")+#
+annotate("text",x=2,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+annotate("text",x=1.5,y=1,label="More Risk Averse")+#
+annotate("text",x=1.5,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+geom_line(data=tibble(x=c(1,2), y=c(1,1),arrow = arrow(length=unit(0.30,"cm"), ends="first", type = "closed")+#
+annotate("text",x=1.5,y=1,label="More Risk Averse")+#
+annotate("text",x=1.5,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+geom_line(data=tibble(x=c(1,2), y=c(1,1)),arrow = arrow(length=unit(0.30,"cm"), ends="first", type = "closed")+#
+annotate("text",x=1.5,y=1,label="More Risk Averse")+#
+annotate("text",x=1.5,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+)
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+geom_line(data=tibble(x=c(1,2), y=c(1,1)),arrow = arrow(length=unit(0.30,"cm"), ends="first", type = "closed")+#
+annotate("text",x=1.5,y=1,label="More Risk Averse")+#
+annotate("text",x=1.5,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+)
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+geom_line(data=tibble(x=c(1,2), y=c(1,1)),arrow = arrow(length=unit(0.30,"cm"), ends="first", type = "closed"))+#
+annotate("text",x=1.5,y=1,label="More Risk Averse")+#
+annotate("text",x=1.5,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+geom_line(aes(data=tibble(x=c(1,2), y=c(1,1))),arrow = arrow(length=unit(0.30,"cm"), ends="first", type = "closed"))+#
+annotate("text",x=1.5,y=1,label="More Risk Averse")+#
+annotate("text",x=1.5,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+annotate("text",x=1.2,y=1,label="More Risk Averse")+#
+annotate("text",x=1.8,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+tibble(x=c(1,2,2),y=c(1,1,2),lab=c("A","B","C")) %>%#
+ggplot(aes(x=x,y=y,label=lab))+#
+geom_text(size=5)+#
+geom_segment(aes(x=1,y=1,xend=2,yend=2), color="red")+#
+annotate("text",x=1.3,y=1,label="More Risk Averse")+#
+annotate("text",x=1.7,y=2,label="Less Risk Averse")+#
+theme_bw()+#
+ labs(title="",#
+     subtitle="",#
+     y = "Return",#
+     x= "Variance",#
+     fill="")+ # labels#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(angle = 0,vjust=0.5,size=0),#
+      axis.text.y = element_text(angle = 0,vjust=0.5,size=0))
+setwd(getSrcDirectory()[1])
+setwd(getSrcDirectory()[1])
+utils::getSrcDirectory
+utils::getSrcDirectory()
+setwd(dirname(rstudioapi::callFun("getActiveDocumentContext")$path))
+getSrcDirectory(function(x) {x})
+setwd("~/Google Drive/WORK/programming/oTree/software_lezioni/classroom_experiments/PGG_lecture/DATA") # set her eyour working directory#
+session.code.interest <- "" #input here the session code you are interested in#
+filelist = list.files(pattern="*.csv$")
+filelist
+session.code.interest <- "g6gf7mj7"
+d <- read_csv(filelist) %>% filter(session.code==session.code.interest)
+library(tidyverse)#
+library(knitr)
+d <- read_csv(filelist) %>% filter(session.code==session.code.interest)
+d
+kable(dt) %>%#
+            kable_styling(font_size=12) %>%#
+            scroll_box(width = "800px", height = "400px")
+library(kableExtra)
+kable(dt) %>%#
+            kable_styling(font_size=12) %>%#
+            scroll_box(width = "800px", height = "400px")
+#Here some  preparatory work on the data#
+# Rename treatments, more self-explanatory#
+dt <- dt %>%#
+      mutate(#
+        player.treatment = ifelse(player.treatment=="VC", "Voluntary Contribution", "Common Pool")#
+      )#
+#rename treatment variable#
+dt <- dt %>%#
+      rename(#
+        Treatment = player.treatment#
+      )#
+# modify variable type#
+dt <- dt %>%#
+      mutate(#
+        participant.code = as.factor(participant.code),#
+        Treatment = as.factor(Treatment),#
+        session.code = as.factor(session.code)#
+      )#
+# unique group identifier (session level as it is partner match)#
+dt <- dt %>%#
+      mutate(group.id=paste(session.code,"_",group.id_in_subsession,sep=""))#
+#
+# need to create a common unit of observation#
+dt <- dt %>% mutate(Contribution=ifelse(Treatment=="Voluntary Contribution",player.choice,100-player.choice))#
+#
+# remove useless columns#
+dt <- dt %>%#
+      select(-group.id_in_subsession,-participant._is_bot,-participant.id_in_session)#
+# Total number of participants#
+dt %>% distinct(participant.code) %>% count() %>% kable(caption=c("Total number of participants"), col.names=c("n"))#
+#
+# Participants per session#
+dt %>% group_by(session.code) %>% distinct(participant.code) %>% count() %>% kable(caption=c("Participants per session"))#
+#
+# Participants per treatment#
+dt %>% group_by(Treatment) %>% distinct(participant.code) %>% count() %>% kable(caption=c("Participants per treatment"))
+names(d)
+d$player.treatment
+dt <- dt %>%#
+      mutate(#
+        player.treatment = ifelse(player.treatment=="VC", "Voluntary Contribution", "Common Pool")#
+      )#
+#rename treatment variable#
+dt <- dt %>%#
+      rename(#
+        Treatment = player.treatment#
+      )
+dt <- read_csv(filelist) %>% filter(session.code==session.code.interest)
+kable(dt) %>%#
+            kable_styling(font_size=12) %>%#
+            scroll_box(width = "800px", height = "400px")
+dt <- dt %>%#
+      mutate(#
+        player.treatment = ifelse(player.treatment=="VC", "Voluntary Contribution", "Common Pool")#
+      )
+dt <- dt %>%#
+      rename(#
+        Treatment = player.treatment#
+      )
+dt <- dt %>%#
+      mutate(#
+        participant.code = as.factor(participant.code),#
+        Treatment = as.factor(Treatment),#
+        session.code = as.factor(session.code)#
+      )
+dt <- dt %>%#
+      mutate(group.id=paste(session.code,"_",group.id_in_subsession,sep=""))
+dt <- dt %>% mutate(Contribution=ifelse(Treatment=="Voluntary Contribution",player.choice,100-player.choice))
+# remove useless columns#
+dt <- dt %>%#
+      select(-group.id_in_subsession,-participant._is_bot,-participant.id_in_session)#
+# Total number of participants#
+dt %>% distinct(participant.code) %>% count() %>% kable(caption=c("Total number of participants"), col.names=c("n"))#
+#
+# Participants per session#
+dt %>% group_by(session.code) %>% distinct(participant.code) %>% count() %>% kable(caption=c("Participants per session"))#
+#
+# Participants per treatment#
+dt %>% group_by(Treatment) %>% distinct(participant.code) %>% count() %>% kable(caption=c("Participants per treatment"))
+dt %>%  group_by(Treatment) %>%#
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(Mean=round(Mean,3),Median=round(Median,3),SD=round(SD,3)) %>%#
+        kable() %>%#
+        kable_styling(font_size=12,bootstrap_options = c("striped", "hover", "condensed", "responsive"),full_width=F)
+p <-#
+ggplot(dt,#
+      aes(x=as.factor(""),y=Contribution,fill=Treatment,color=Treatment))+#
+      geom_jitter(alpha=.5,width=.3,height=.3)#
+# boxplot#
+p.1 <- p + geom_boxplot(alpha=.5)#
+# stats#
+p.2 <- p.1 + stat_summary(fun.y=base::mean, geom="point",#
+              aes(group=c(Treatment)),#
+              position=position_dodge(.9),#
+              color="blue",#
+              shape=23,#
+              fill="white",#
+              size=3,#
+              alpha=.9)
+p.2 +#
+theme_bw()+#
+facet_wrap(~Treatment)+#
+#  scale_color_manual(values = getPalette)+#
+labs(title="Individual contributions to PG",#
+    subtitle="By treatment ",#
+    y = "Contribution to PG",#
+    x= "")+#
+theme(legend.position="none",#
+      axis.text=element_text(size=8),#
+      axis.title=element_text(size=14,face="bold"),#
+      axis.text.x = element_text(size=10)) #axis
+dt %>%  group_by(Treatment, subsession.round_number) %>%#
+        summarise_at("Contribution",#
+                    list(N=~n(),#
+                    Mean=~mean(.),#
+                    Median=~median(.),#
+                    SD=~sd(.))#
+                    ) %>%#
+        mutate(#
+              Mean=round(Mean,3),#
+              Median=round(Median,3),#
+              SD=round(SD,3)#
+              ) %>%#
+        mutate(M_SD=paste(Mean," (",SD,")",sep="")) %>%#
+        select(subsession.round_number,M_SD) %>%#
+        spread(subsession.round_number,M_SD)%>%#
+        kable(caption="Average contributions per period (SD in parenthesis)",) %>%#
+        kable_styling(font_size=12,#
+          bootstrap_options = c("striped", "hover", "condensed", "responsive"),#
+          full_width=F)
+ggplot(dt,#
+          aes(x=subsession.round_number,y=Contribution,fill=Treatment,color=Treatment))+#
+          geom_jitter(alpha=.5,width=.3,height=.3)+#
+          geom_smooth(fill="grey55")+#
+          ylim(0,100)+#
+          theme_bw()+#
+          facet_wrap(~Treatment)+#
+          scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+#
+    #      scale_color_manual(values = getPalette)+#
+          labs(title="Individual contributions to PG",#
+              subtitle="By treatment and round",#
+              y = "Average contribution to PG",#
+              x= "Round")+#
+          theme(legend.position="none",#
+                axis.text=element_text(size=8),#
+                axis.title=element_text(size=14,face="bold"),#
+                axis.text.x = element_text(size=10)) #axis
+ggplot(dt,#
+          aes(x=subsession.round_number,y=Contribution,fill=Treatment,color=Treatment))+#
+          geom_jitter(alpha=.5,width=.3,height=.3)+#
+          geom_smooth(fill="grey55")+#
+          ylim(0,100)+#
+          theme_bw()+#
+          facet_wrap(~Treatment)+#
+          scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))
++#
+    #      scale_color_manual(values = getPalette)+#
+          labs(title="Individual contributions to PG",#
+              subtitle="By treatment and round",#
+              y = "Average contribution to PG",#
+              x= "Round")+#
+          theme(legend.position="none",#
+                axis.text=element_text(size=8),#
+                axis.title=element_text(size=14,face="bold"),#
+                axis.text.x = element_text(size=10)) #axis
+ggplot(dt,#
+          aes(x=subsession.round_number,y=Contribution,fill=Treatment,color=Treatment))+#
+          geom_jitter(alpha=.5,width=.3,height=.3)+#
+          geom_smooth(fill="grey55")+#
+          ylim(0,100)+#
+          theme_bw()+#
+          facet_wrap(~Treatment)+#
+          scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+#
+    #      scale_color_manual(values = getPalette)+#
+          labs(title="Individual contributions to PG",#
+              subtitle="By treatment and round",#
+              y = "Average contribution to PG",#
+              x= "Round")+#
+          theme(legend.position="none",#
+                axis.text=element_text(size=8),#
+                axis.title=element_text(size=14,face="bold"),#
+                axis.text.x = element_text(size=10)) #axis
+ggplot(dt,#
+          aes(x=subsession.round_number,y=Contribution,fill=Treatment,color=Treatment))+#
+          geom_jitter(alpha=.5,width=.3,height=.3)+#
+          geom_smooth(fill="grey55")+#
+          ylim(0,100)+#
+          theme_bw()+#
+          facet_wrap(~Treatment)+#
+          scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))
++#
+    #      scale_color_manual(values = getPalette)+#
+          labs(title="Individual contributions to PG",#
+              subtitle="By treatment and round",#
+              y = "Average contribution to PG",#
+              x= "Round")+#
+          theme(legend.position="none",#
+                axis.text=element_text(size=8),#
+                axis.title=element_text(size=14,face="bold"),#
+                axis.text.x = element_text(size=10)) #axis
+ggplot(dt,#
+          aes(x=subsession.round_number,y=Contribution,fill=Treatment,color=Treatment))+#
+          geom_jitter(alpha=.5,width=.3,height=.3)+#
+          geom_smooth(fill="grey55")+#
+          ylim(0,100)+#
+          theme_bw()+#
+          facet_wrap(~Treatment)+#
+          scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+#
+          labs(title="Individual contributions to PG",#
+              subtitle="By treatment and round",#
+              y = "Average contribution to PG",#
+              x= "Round")+#
+          theme(legend.position="none",#
+                axis.text=element_text(size=8),#
+                axis.title=element_text(size=14,face="bold"),#
+                axis.text.x = element_text(size=10)) #axis
+dt %>%  group_by(Treatment, subsession.round_number) %>%#
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(SEM=SD/sqrt(N)) %>%#
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+#
+        geom_line(alpha=.7)+#
+        geom_point()+#
+        theme_bw()+#
+        geom_errorbar(mapping=aes(x=subsession.round_number, ymin=Mean-SEM, ymax=Mean+SEM), width=0.5, alpha=.7)+#
+        scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+#
+        labs(title="Average contributions to PG",#
+            subtitle="By treatment and round",#
+            y = "Average contribution to PG",#
+            x= "Round")+#
+        theme(legend.position="bottom",#
+              axis.text=element_text(size=8),#
+              axis.title=element_text(size=14,face="bold"),#
+              axis.text.x = element_text(size=10)) #axis
+dt %>%  group_by(Treatment, subsession.round_number) %>%#
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(SEM=SD/sqrt(N)) %>%#
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+#
+        geom_line(alpha=.7)+#
+        geom_point()+#
+        theme_bw()+#
+        geom_errorbar(mapping=aes(x=subsession.round_number, ymin=Mean-SEM, ymax=Mean+SEM), width=0.5, alpha=.7)+#
+        scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+#
+        labs(title="Average contributions to PG",#
+            subtitle="By treatment and round",#
+            y = "Average contribution to PG",#
+            x= "Round")+#
+        theme(legend.position="bottom",#
+              axis.text=element_text(size=8),#
+              axis.title=element_text(size=14,face="bold"),#
+              axis.text.x = element_text(size=10)) #axis
+dt %>%  group_by(Treatment, subsession.round_number) %>%#
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(SEM=SD/sqrt(N)) %>%#
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+#
+        geom_line(alpha=.7)+#
+        geom_point()+#
+        theme_bw()+#
+        geom_errorbar(mapping=aes(x=subsession.round_number, ymin=Mean-SEM, ymax=Mean+SEM), width=0.5, alpha=.7)
+dt %>%  group_by(Treatment, subsession.round_number) %>%#
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(SEM=SD/sqrt(N)) %>%#
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+#
+        geom_line(alpha=.7)+#
+        geom_point()+#
+        theme_bw()
+dt %>%  group_by(Treatment, subsession.round_number) %>%#
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(SEM=SD/sqrt(N)) %>%#
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+#
+        geom_line(alpha=.7)+#
+        geom_point()+#
+        theme_bw()+#
+        geom_errorbar(mapping=aes(x=subsession.round_number, ymin=Mean-SEM, ymax=Mean+SEM), width=0.5, alpha=.7)
+summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(SEM=SD/sqrt(N)) %>%#
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+#
+        geom_line(alpha=.7)+#
+        geom_point()+#
+        theme_bw()+#
+        geom_errorbar(mapping=aes(x=subsession.round_number, ymin=Mean-SEM, ymax=Mean+SEM), width=0.5, alpha=.7)+#
+        scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+#
+        labs(title="Average contributions to PG",#
+            subtitle="By treatment and round",#
+            y = "Average contribution to PG",#
+            x= "Round")
+dt %>%  group_by(Treatment, subsession.round_number) %>%#
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(SEM=SD/sqrt(N)) %>%#
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+#
+        geom_line(alpha=.7)+#
+        geom_point()+#
+        theme_bw()+#
+        geom_errorbar(mapping=aes(x=subsession.round_number, ymin=Mean-SEM, ymax=Mean+SEM), width=0.5, alpha=.7)+#
+        scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))
++#
+        labs(title="Average contributions to PG",#
+            subtitle="By treatment and round",#
+            y = "Average contribution to PG",#
+            x= "Round")
+dt %>%  group_by(Treatment, subsession.round_number) %>%#
+        summarise_at("Contribution",list(N=~n(), Mean=~mean(.), Median=~median(.), SD=~sd(.))) %>%#
+        mutate(SEM=SD/sqrt(N)) %>%#
+        ggplot(aes(x=subsession.round_number,y=Mean,fill=Treatment,color=Treatment))+#
+        geom_line(alpha=.7)+#
+        geom_point()+#
+        theme_bw()+#
+        geom_errorbar(mapping=aes(x=subsession.round_number, ymin=Mean-SEM, ymax=Mean+SEM), width=0.5, alpha=.7)+#
+        scale_x_continuous(breaks=seq(1,10),minor_breaks=seq(1,10))+#
+        labs(title="Average contributions to PG",#
+            subtitle="By treatment and round",#
+            y = "Average contribution to PG",#
+            x= "Round")+#
+        theme(legend.position="bottom",#
+              axis.text=element_text(size=8),#
+              axis.title=element_text(size=14,face="bold"),#
+              axis.text.x = element_text(size=10)) #axis

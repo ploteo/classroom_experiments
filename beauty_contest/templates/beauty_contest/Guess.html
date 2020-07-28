@@ -1,0 +1,134 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Your Guess ({{player.round_number}} of {{Constants.num_rounds}})
+{% endblock %}
+
+{% block content %}
+
+<p> Please select your guess by moving the slider to the desired value </p>
+
+<p> When done, click on "Next" </p>
+
+    {% if player.round_number > 1 %}
+        <p>
+            Here were the two-thirds-average values in previous rounds:
+            {{ group.two_thirds_avg_history }}
+        </p>
+    {% endif %}
+
+{% if player.display == "slider_100" %}
+
+<div class="slidecontainer">
+  <input type="range" min="0" max="100" value="100" class="slider" id="myRange" name="guess">
+  <p style="font-size:18pt;color:blue">Value: <span id="guess"></span>
+</div>
+
+{% else %}
+
+<div class="slidecontainer">
+  <input type="range" min="0" max="100" value="0" class="slider" id="myRange" name="guess">
+  <p style="font-size:18pt;color:blue">Value: <span id="guess"></span>
+</div>
+
+{% endif %}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal">
+  Next
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Your guess </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Do you confirm your guess?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">No</button>
+        <button class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+{% block styles %}
+   <style>
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: .1; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+   </style>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+  $(document).ready(function(){
+  });
+
+  $("#btn_next").click(function(){
+    $("#form").submit();
+  });
+
+</script>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("guess");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+    </script>
+
+{% endblock %}
