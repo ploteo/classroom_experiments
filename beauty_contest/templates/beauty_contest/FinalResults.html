@@ -2,18 +2,30 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Final Results
+  <h1>  Final Results <h2>
 {% endblock %}
 
 {% block content %}
-
+<div class="container p-3 my-3 border" style="font-size:16pt">
     <p>The experiment is over</p>
 
     <p>
         Your total earnings are {{ total_payoff }}
     </p>
+</div>
 
-    {% next_button %}
+<div class="container" style="font-size:18pt" name="button">
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-dark btn-large">
+         <span style="font-size:16pt">Conclude</span>
+     </button>
+    </div>
+  </div>
+</div>
 
 
 {% endblock %}

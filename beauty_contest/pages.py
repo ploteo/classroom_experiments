@@ -7,7 +7,7 @@ class Instructions(Page):
         return self.round_number == 1
 
 
-class Guess2(Page):
+class Guess(Page):
     form_model = models.Player
     form_fields = ['guess']
 
@@ -29,4 +29,4 @@ class FinalResults(Page):
     def is_displayed(self):
         return self.round_number == 3
 
-page_sequence = [Instructions, Guess2, ResultsWaitPage, Results, FinalResults]
+page_sequence = [Instructions, Guess, ResultsWaitPage, Results, FinalResults]

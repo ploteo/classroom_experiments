@@ -2,62 +2,106 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Your Guess ({{player.round_number}} of {{Constants.num_rounds}})
+  <h1>  Your Guess ({{player.round_number}} of {{Constants.num_rounds}}) </h1>
 {% endblock %}
 
 {% block content %}
 
-<p> Please select your guess by moving the slider to the desired value </p>
+<div class="container p-3 my-3" style="font-size:16pt">
 
-<p> When done, click on "Next" </p>
-
-    {% if player.round_number > 1 %}
-        <p>
-            Here were the two-thirds-average values in previous rounds:
-            {{ group.two_thirds_avg_history }}
-        </p>
-    {% endif %}
+<!-- Treatment -->
 
 {% if player.display == "slider_100" %}
 
-<div class="slidecontainer">
-  <input type="range" min="0" max="100" value="100" class="slider" id="myRange" name="guess">
+<div class="slidecontainer" id="trigger_alt" style="display: block;">
+
+  <p> Please select your guess by moving the slider to the desired value </p>
+
+  <p> When done, click on "Submit" </p>
+  <!-- to display history -->
+
+      {% if player.round_number > 1 %}
+          <p>
+              Here were the two-thirds-average values in previous rounds:
+              {{ group.two_thirds_avg_history }}
+          </p>
+      {% endif %}
+      <!-- -->
+
+  <input type="range" min="0" max="100" value="100" class="slider" id="MyRange" name="guess">
   <p style="font-size:18pt;color:blue">Value: <span id="guess"></span>
+
+
+    <div class="container" style="font-size:18pt" name="button">
+      <div class="row" style="padding-left:135px;">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-info" onclick="toggle_visibility('trigger'); toggle_visibility('trigger_alt'); myFunction()" id="id_confirmation">
+            <span style="font-size:16pt">  Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
 </div>
 
 {% else %}
 
-<div class="slidecontainer">
-  <input type="range" min="0" max="100" value="0" class="slider" id="myRange" name="guess">
+<div class="slidecontainer" id="trigger_alt" style="display: block;">
+
+  <p> Please select your guess by moving the slider to the desired value </p>
+
+  <p> When done, click on "Submit" </p>
+<!-- to display history -->
+      {% if player.round_number > 1 %}
+          <p>
+              Here were the two-thirds-average values in previous rounds:
+              {{ group.two_thirds_avg_history }}
+          </p>
+      {% endif %}
+<!-- -->
+
+  <input type="range" min="0" max="100" value="0" class="slider" id="MyRange" name="guess">
   <p style="font-size:18pt;color:blue">Value: <span id="guess"></span>
-</div>
+
+    <div class="container" style="font-size:18pt" name="button">
+      <div class="row" style="padding-left:135px;">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-info" onclick="toggle_visibility('trigger'); toggle_visibility('trigger_alt'); myFunction()" id="id_confirmation">
+          <span style="font-size:16pt">  Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
 
 {% endif %}
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal">
-  Next
-</button>
+</div>
 
-<!-- Modal -->
-<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ModalLabel">Your guess </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Do you confirm your guess?</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-dismiss="modal">No</button>
-        <button class="btn btn-primary">Yes</button>
-      </div>
-    </div>
-  </div>
+<!-- this is to confirm -->
+
+<div class="container p-3 my-3" style="font-size:16pt">
+<div id="trigger" style="display: none;">
+
+<p>You chose <span id="value" style="font-weight: bold;"></span>  <br>
+
+Do you confirm your choice? <br><br>
+  <button  class="btn btn-success">
+    <span style="font-size:16pt">  Yes &nbsp;</span>
+
+  </button>
+&nbsp;
+  <button type="button" class="btn btn-danger" onclick="toggle_visibility('trigger'); toggle_visibility('trigger_alt')">
+    <span style="font-size:16pt">  &nbsp;  No &nbsp;</span>
+
+  </button>
+
+</div>
 </div>
 {% endblock %}
 
@@ -65,7 +109,15 @@
 
 
 {% block styles %}
-   <style>
+
+<style>
+.myDiv {
+  border: 0px outset red;
+  background-color: #ebebeb;
+  text-align: center;
+  padding: 15px;
+}
+
 .slidecontainer {
   width: 100%; /* Width of the outside container */
 }
@@ -109,19 +161,44 @@
 
 {% block scripts %}
 
+<!-- to display the value in the confirmation-->
+<script>
+
+  function myFunction() {
+    var x = document.getElementById("MyRange").value;
+    document.getElementById("value").innerHTML = x;
+  }
+  </script>
+
+
+ </script>
+<!-- to display the value -->
+
+<!-- to control visibility of the confirmation-->
+
+<script>
+
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+
+<!-- to control visibility of the confirmation-->
+
+</script>
+
 <script>
 
   $(document).ready(function(){
   });
 
-  $("#btn_next").click(function(){
-    $("#form").submit();
-  });
-
 </script>
 
 <script>
-var slider = document.getElementById("myRange");
+var slider = document.getElementById("MyRange");
 var output = document.getElementById("guess");
 output.innerHTML = slider.value; // Display the default slider value
 

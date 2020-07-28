@@ -2,10 +2,11 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Results
+<h1>    Results </h1>
 {% endblock %}
 
 {% block content %}
+<div class="container p-3 my-3 border" style="font-size:16pt">
 
     <p>Here were the numbers guessed:</p>
 
@@ -34,7 +35,20 @@
     Your payoff is {{ player.payoff }}.
     </p>
 
-    {% next_button %}
+</div>
+
+<div class="container" style="font-size:18pt" name="button">
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:16pt">Continue</span>
+     </button>
+    </div>
+  </div>
+</div>
 
 
 {% endblock %}

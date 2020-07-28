@@ -1,14 +1,12 @@
-{% load otree staticfiles %}
+{% extends "global/Page.html" %}
 {% load staticfiles otree %}
 
 {% block title %}
-    Instructions
+  <h1>  Instructions </h1>
 {% endblock %}
 
 {% block content %}
-
-<div >
-
+<div class="container p-3 my-3 border" style="font-size:16pt">
 
     <p>
         Each of you will be asked to choose a
@@ -28,6 +26,19 @@
 
 </div>
 
-  {% next_button %}
+
+<div class="container" style="font-size:18pt" name="button">
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:16pt">Continue</span>
+     </button>
+    </div>
+  </div>
+</div>
+
 
   {% endblock %}

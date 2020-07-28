@@ -14,9 +14,9 @@ Players all guess a number; whoever guesses closest to
 
 class Constants(BaseConstants):
     players_per_group = None
-    num_rounds = 3
-    name_in_url = 'beauty_contest'
 
+    num_rounds = 5
+    name_in_url = 'beauty_contest'
     jackpot = Currency(100)
     guess_max = 100
 
