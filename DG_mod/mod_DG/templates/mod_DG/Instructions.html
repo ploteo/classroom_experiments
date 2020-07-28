@@ -1,0 +1,128 @@
+
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+
+<h1>Instructions</h1>
+<div class="container p-3 my-3 border" style="font-size:16pt">
+
+<p>The experiment is made of two parts. In each part, you can earn an additional amount of tokens. The tokens you earn in one part are not affected by the tokens you earn in the other part.</p>
+
+<p> At the end of the session, each token is exchanged with 0.10 Pound Sterling (10p) to define your bonus payment. </p>
+
+You receive here the instructions for Part 1. Instructions for Part 2 are given after Part 1.
+</div>
+
+<div class="container p-3 my-3 border" style="font-size:16pt">
+  <h2> Part 1 </h2>
+
+      <p>You are asked to choose between two alternative allocations of earnings, to yourself and to an anonymous other. </p>
+
+      <p>The two allocations are labelled <b>Option A</b> and <b>Option B</b>. </p>
+
+    The following is an example of the choice you are going to make:
+        <ul>
+          <li>
+        If you choose Option A, you earn {{A_own}} tokens and the other earns {{A_other}} tokens.
+        </li>
+        <li>
+        If you choose Option B, you earn {{B}} tokens and the other earns {{B}} tokens.
+          </li>
+        </ul>
+
+
+      <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col"  style="text-align:center; width:5%">#</th>
+          <th scope="col" colspan="2" style="text-align:center; width:30%">Option A</th>
+          <th style="text-align:center; width:5%"> &nbsp;</th>
+
+          <th scope="col" colspan="2"  style="text-align:center; width:30%">Option B</th>
+          <th style="text-align:center; width:10%"> &nbsp;</th>
+          <th scope="col" style="width: 20%; text-align:center; background-color:powderblue;">Your Choice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td style="text-align:center"> <i>Self</i>  </td>
+          <td style="text-align:center"> <i>Other</i></td>
+          <td></td>
+
+          <td style="text-align:center"><i>Self</i></td>
+          <td style="text-align:center"><i>Other </i></td>
+          <th style="text-align:center; width:10%"> &nbsp;</th>
+          <td style="font-weight: bold; text-align:right" ></td>
+
+        </tr>
+
+        <tr>
+          <th scope="row">1</th>
+          <td style="text-align:center">{{A_own}} </td>
+          <td style="text-align:center">{{A_other}}</td>
+          <td></td>
+
+          <td style="text-align:center">{{B}}</td>
+          <td style="text-align:center">{{B}} </td>
+          <th style="text-align:center; width:10%"> &nbsp;</th>
+
+          <td style="font-weight: bold; text-align:center">{{form.C_0}}</td>
+        </tr>
+
+      </tbody>
+
+      </table>
+      <p style="text-align:center;font-size:80%" >(<i>The choice on this page has no consequences on your actual earnings.</i>)</p>
+
+<p>On the next page, you will make 11 of such choices, with different values in correspondence to Option A and Option B. Choices are made in a table, and each row contains a choice between A and B.</p>
+
+<p> At the end of the session, you will be randomly matched with another anonymous participant: one of you will be randomly assigned to the role of <i>Decision Maker</i> and the other to the role of <i>Recipient</i>. </p>
+
+<p>If you are a <i>Decision Maker</i>, your choices will define the actual earnings. Specifically, one of your 11 choices will be randomly selected, and the option you chose will be implemented: you are going to earn the <i>Self</i> payoff, and the other is going to earn the <i>Other</i> payoff for that choice. </p>
+
+<p> With reference to the options in this page:
+  <ul>
+  <li> if you chose A, you earned {{A_own}} and the other earned {{A_other}} </li>
+  <li> if you chose B, you earned {{B}} and the other earned {{B}} </li>
+  </ul>
+</p>
+
+<p> If you are a <i> Recipient</i>, your choice is not implemented, and your earnings are defined by the choice of the <i>Decision Maker</i>.
+
+
+</div>
+
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+      <i>After having read and understood the instructions, click on the Continue button.</i>
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:18pt">Continue</span>
+     </button>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

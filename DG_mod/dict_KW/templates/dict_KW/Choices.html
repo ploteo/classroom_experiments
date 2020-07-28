@@ -1,0 +1,220 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin: 5px -5px 5px -20px;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+
+
+<h1> Your Choice</h1>
+
+<p align = "justify" style="font-size:140%;"> Please judge the social appropriateness of Option A (relative to Option B)</p>
+
+<p align = "justify" style="font-size:100%;">(Choices are made by selecting an option from the dropdown menu.)</p>
+
+<style>
+  .table-condensed{
+    font-size: 120%;;
+  }
+</style>
+
+<table class="table table-hover table-condensed">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col"  style="text-align:center; width:5%">#</th>
+      <th scope="col" colspan="2" style="text-align:center; width:25%">Option A</th>
+      <th style="text-align:center; width:0%"> &nbsp;</th>
+      <th scope="col" colspan="2"  style="text-align:center; width:25%">Option B</th>
+      <th style="text-align:center; width:5%""> &nbsp;</th>
+      <th scope="col" style="width: 40%; text-align:left; background-color:powderblue;">Social appropriateness of A</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr>
+    <th scope="row"></th>
+    <td style="text-align:center"> <i>Self</i>  </td>
+    <td style="text-align:center"> <i>Other</i></td>
+    <th style="text-align:center"> &nbsp;</th>
+
+    <td style="text-align:center"><i>Self</i></td>
+    <td style="text-align:center"><i>Other </i></td>
+    <th style="text-align:center"> &nbsp;</th>
+
+    <td style="font-weight: bold; text-align:right" ></td>
+
+  </tr>
+
+  <tr>
+    <th scope="row">1</th>
+    <td style="text-align:center">{{A_own}} </td>
+    <td style="text-align:center">{{A_other}}</td>
+    <th style="text-align:center; width:5%"> &nbsp;</th>
+
+    <td style="text-align:center">{{B1}}</td>
+    <td style="text-align:center">{{B1}} </td>
+    <th style="text-align:center"> &nbsp;</th>
+
+    <td style="font-weight: bold; text-align:left">{{form.C_1 }}</td>
+  </tr>
+<!-- Row 2 -->
+  <tr>
+    <th scope="row">2</th>
+    <td style="text-align:center">{{A_own}} </td>
+    <td style="text-align:center">{{A_other}}</td>
+    <th style="text-align:center; width:5%"> &nbsp;</th>
+
+    <td style="text-align:center">{{B2}}</td>
+    <td style="text-align:center">{{B2}} </td>
+    <th style="text-align:center"> &nbsp;</th>
+
+    <td style="font-weight: bold; text-align:left">{{form.C_2 }}</td>
+  </tr>
+  <!-- Row 2 -->
+  <tr>
+    <th scope="row">3</th>
+    <td style="text-align:center">{{A_own}} </td>
+    <td style="text-align:center">{{A_other}}</td>
+    <th style="text-align:center; width:5%"> &nbsp;</th>
+
+    <td style="text-align:center">{{B3}}</td>
+    <td style="text-align:center">{{B3}} </td>
+    <th style="text-align:center"> &nbsp;</th>
+
+    <td style="font-weight: bold; text-align:left">{{form.C_3 }}</td>
+  </tr>
+  <!-- Row 2 -->
+    <tr>
+      <th scope="row">4</th>
+      <td style="text-align:center">{{A_own}} </td>
+      <td style="text-align:center">{{A_other}}</td>
+      <th style="text-align:center; width:5%"> &nbsp;</th>
+
+      <td style="text-align:center">{{B4}}</td>
+      <td style="text-align:center">{{B4}} </td>
+      <th style="text-align:center"> &nbsp;</th>
+
+      <td style="font-weight: bold; text-align:left">{{form.C_4 }}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td style="text-align:center">{{A_own}} </td>
+      <td style="text-align:center">{{A_other}}</td>
+      <th style="text-align:center; width:5%"> &nbsp;</th>
+
+      <td style="text-align:center">{{B5}}</td>
+      <td style="text-align:center">{{B5}} </td>
+      <th style="text-align:center"> &nbsp;</th>
+
+      <td style="font-weight: bold; text-align:left">{{form.C_5 }}</td>
+    </tr>
+    <!-- Row 2 -->
+      <tr>
+        <th scope="row">6</th>
+        <td style="text-align:center">{{A_own}} </td>
+        <td style="text-align:center">{{A_other}}</td>
+        <th style="text-align:center; width:5%"> &nbsp;</th>
+
+        <td style="text-align:center">{{B6}}</td>
+        <td style="text-align:center">{{B6}} </td>
+        <th style="text-align:center"> &nbsp;</th>
+
+        <td style="font-weight: bold; text-align:left">{{form.C_6 }}</td>
+      </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td style="text-align:center">{{A_own}} </td>
+      <td style="text-align:center">{{A_other}}</td>
+      <th style="text-align:center; width:5%"> &nbsp;</th>
+
+      <td style="text-align:center">{{B7}}</td>
+      <td style="text-align:center">{{B7}} </td>
+      <th style="text-align:center"> &nbsp;</th>
+
+      <td style="font-weight: bold; text-align:left">{{form.C_7 }}</td>
+    </tr>
+    <!-- Row 2 -->
+      <tr>
+        <th scope="row">8</th>
+        <td style="text-align:center">{{A_own}} </td>
+        <td style="text-align:center">{{A_other}}</td>
+        <th style="text-align:center; width:5%"> &nbsp;</th>
+
+        <td style="text-align:center">{{B8}}</td>
+        <td style="text-align:center">{{B8}} </td>
+        <th style="text-align:center"> &nbsp;</th>
+
+        <td style="font-weight: bold; text-align:left">{{form.C_8 }}</td>
+      </tr>
+      <!-- Row 2 -->
+        <tr>
+          <th scope="row">9</th>
+          <td style="text-align:center">{{A_own}} </td>
+          <td style="text-align:center">{{A_other}}</td>
+          <th style="text-align:center; width:5%"> &nbsp;</th>
+
+          <td style="text-align:center">{{B9}}</td>
+          <td style="text-align:center">{{B9}} </td>
+          <th style="text-align:center"> &nbsp;</th>
+
+          <td style="font-weight: bold; text-align:left">{{form.C_9 }}</td>
+        </tr>
+
+        <!-- Row 2 -->
+          <tr>
+            <th scope="row">10</th>
+            <td style="text-align:center">{{A_own}} </td>
+            <td style="text-align:center">{{A_other}}</td>
+            <th style="text-align:center; width:5%"> &nbsp;</th>
+
+            <td style="text-align:center">{{B10}}</td>
+            <td style="text-align:center">{{B10}} </td>
+            <th style="text-align:center"> &nbsp;</th>
+
+            <td style="font-weight: bold; text-align:left">{{form.C_10 }}</td>
+          </tr>
+          <tr>
+            <th scope="row">11</th>
+            <td style="text-align:center">{{A_own}} </td>
+            <td style="text-align:center">{{A_other}}</td>
+            <th style="text-align:center; width:5%"> &nbsp;</th>
+
+            <td style="text-align:center">{{B11}}</td>
+            <td style="text-align:center">{{B11}} </td>
+            <th style="text-align:center"> &nbsp;</th>
+
+            <td style="font-weight: bold; text-align:left">{{form.C_11 }}</td>
+          </tr>
+</tbody>
+</table>
+
+
+
+
+
+        <div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:135px;">
+        		<div class="col-md-10">
+<i><p style="font-size:14pt">When done, please click on the button "Continue".</p></i>
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+                  <span style="font-size:18pt">Continue</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+
+
+{% endblock %} -->

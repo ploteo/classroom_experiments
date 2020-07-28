@@ -1,0 +1,192 @@
+---
+title: "DG"
+author: "Matteo Ploner"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+output:
+
+  prettydoc::html_pretty:
+    theme: leonids #hpstr #tactile #hpstr
+    highlight: github
+
+  html_document:
+    number_sections: true
+    toc: true # table of content true
+    toc_depth: 3  # upto three depths of headings (specified by #, ## and ###)
+    toc_float: true
+    theme: cosmo  #united; paper; cerulean
+    highlight: tango  # specifies the syntax highlighting style
+
+  ioslides_presentation:
+    toc: yes
+    toc_depth: 2
+    incremental: no
+    smaller: no
+    widescreen: yes
+    duration: 90
+    self_contained: yes
+
+  slidy_presentation:
+    footer: "FOOTER"
+    duration: 90
+    self_contained: yes
+
+  beamer_presentation: default
+
+  revealjs::revealjs_presentation:
+    reveal_options:
+      slideNumber: true
+      previewLinks: false
+      controls: false
+      navigationMode: linear #grid, default
+    theme: sky #“default”, “simple”, “sky”, “beige”, “serif”, “solarized”, “blood”, “moon”, “night”, “black”, “league” or “white”
+    highlight: pygments
+    slideNumber: true
+
+  pdf_document:
+    keep_tex: true
+    number_sections: true
+    df_print: kable
+documentclass: article
+fontsize: 11pt
+geometry: margin=1in
+
+#css: PATHto/.css
+#bibliography: PATHto/.bib
+---
+
+
+# Sample  {.tabset .tabset-fade .tabset-pills}
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+library(tidyverse)
+library(knitr)
+
+setwd("/Users/matteo/Google Drive/WORK/insegnamento/VARIE/smart_BEEjS/lectures/2_soc_prefs/data")
+
+
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+library(tidyverse)
+
+d <- full_join(
+read_csv("./mod_DG_2020-06-18.csv"),
+read_csv("./dict_KW_2020-06-18.csv"),
+by=c("participant.code")
+) %>% filter(session.code.y=="thk80gj6" )
+
+# switch
+
+switches <- d %>% select(participant.code,player.C_1.x,player.C_2.x,player.C_3.x,player.C_4.x,player.C_5.x,player.C_6.x,player.C_7.x,player.C_8.x,player.C_9.x,player.C_10.x,player.C_11.x) %>% gather("key","Value",2:12) %>%
+mutate(key= as.integer(substr(key,10,11))) %>% group_by(participant.code) %>% filter(Value==2) %>% summarise_at("key",~min(.))
+
+dt <- full_join(d %>% select(participant.code), switches, by=c("participant.code"))%>% replace_na(list(key=12))
+
+dt <- dt %>% mutate(type=ifelse(key==12,"CP",
+ifelse(key==1,"MM",
+ifelse(key==11,"wS",
+ifelse(key>=8 & key<11,"IA",
+ifelse(key>5 & key<=7,"WE",
+"AL"))))))
+```
+
+## Our Results: Individual behavior
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+full_join(
+d %>% select(participant.code,player.C_1.x,player.C_2.x,player.C_3.x,player.C_4.x,player.C_5.x,player.C_6.x,player.C_7.x,player.C_8.x,player.C_9.x,player.C_10.x,player.C_11.x) %>% gather("key","Value",2:12),
+dt %>% select(-key), by=c("participant.code")) %>%
+mutate(key= as.integer(substr(key,10,11))) %>%
+ggplot(aes(x=key,y=Value,color=type))+
+geom_line(size=2)+
+theme_dark()+
+facet_wrap(.~participant.code)+
+scale_y_continuous(
+  breaks = c(1,2),
+  minor_breaks = c(1,2),
+  labels = c("A","B")
+)+
+scale_x_continuous(
+  breaks = 1:11,
+  minor_breaks = 1:11
+)
+
+```
+
+## Our Results: Distribution of Types
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=9, fig.align="center"}
+
+dt %>% group_by(type) %>% count() %>% ungroup() %>% mutate(Freq=prop.table(n)) %>%
+ggplot(aes(x=fct_reorder(type,desc(n)),y=n))+
+geom_col(fill="dodgerblue",color="grey22",alpha=.6)+
+ theme_bw() +
+ labs(title="Types",
+     subtitle="",
+     y = "Freq",
+     x= "Type",
+     fill="",
+     caption="SOURCE")+ # labels
+theme(legend.position="bottom",
+      axis.text=element_text(size=8),
+      axis.title=element_text(size=14,face="bold"),
+      axis.text.x = element_text(angle = 0, hjust = 1,vjust=0.5)) #axis
+```
+
+# Norms
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=7.5, fig.width=6, fig.align="center"}
+#[[4, 'Very appropriate'],[3, 'Somewhat appropriate'],[2,'Somewhat inappropriate'],[1,'Very inappropriate']])
+dt.g <- d %>% select(participant.code,player.C_1.y,player.C_2.y,player.C_3.y,player.C_4.y,player.C_5.y,player.C_6.y,player.C_7.y,player.C_8.y,player.C_9.y,player.C_10.y,player.C_11.y) %>% gather("key","Value",2:12) %>%
+mutate(key= as.integer(substr(key,10,11))) %>%
+group_by(key,Value) %>% count() %>% ungroup() %>% group_by(key) %>% mutate(freq=prop.table(n)) %>%
+mutate(Value=ifelse(Value==4,'Very appropriate',ifelse(Value==3,'Somewhat appropriate',ifelse(Value==2,'Somewhat inappropriate','Very inappropriate'))))
+
+dt.g$Value <- factor(dt.g$Value ,ordered = TRUE,
+                                levels = c("Very inappropriate", "Somewhat inappropriate", "Somewhat appropriate", "Very appropriate") )
+
+
+ggplot(dt.g,aes(x=Value,y=freq))+
+geom_col(fill="dodgerblue")+
+ theme_bw() +
+ facet_wrap(.~key,ncol=1)+
+ scale_y_continuous(breaks=c(0,.25,.5,.75))+
+ labs(title="Social Appropriateness",
+     subtitle="",
+     y = "Freq",
+     x= "Assessment",
+     fill="")+ # labels
+theme(legend.position="bottom",
+      axis.text=element_text(size=8),
+      axis.title=element_text(size=10,face="bold"),
+      axis.text.x = element_text(angle = 45, hjust = 0,vjust=0)) #axis
+
+```
+
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+
+full_join(
+d %>% select(participant.code,player.C_1.y,player.C_2.y,player.C_3.y,player.C_4.y,player.C_5.y,player.C_6.y,player.C_7.y,player.C_8.y,player.C_9.y,player.C_10.y,player.C_11.y) %>% gather("Key","Value.Guess",2:12) %>% mutate(Key=substr(Key,10,11)),
+d %>% select(participant.code,player.C_1.x,player.C_2.x,player.C_3.x,player.C_4.x,player.C_5.x,player.C_6.x,player.C_7.x,player.C_8.x,player.C_9.x,player.C_10.x,player.C_11.x) %>% gather("Key","Value.Choice",2:12) %>% mutate(Key=substr(Key,10,11)),
+by=c("participant.code","Key")
+) %>% group_by(Value.Choice) %>% summarise_at("Value.Guess",~mean(.)) %>%
+mutate(Value.Choice=ifelse(Value.Choice==1,"A","B")) %>%
+ggplot(aes(x=as.factor(Value.Choice),y=Value.Guess))+
+geom_col(fill="dodgerblue")+
+ theme_bw() +
+ labs(title="",
+     subtitle="",
+     y = "Score of Social Appropriateness of A",
+     x= "Choice",
+     fill="")+ # labels
+theme(legend.position="bottom",
+      axis.text=element_text(size=8),
+      axis.title=element_text(size=14,face="bold"),
+      axis.text.x = element_text(angle = 90, hjust = 1,vjust=0.5)) #axis
+```
+
+- Which directions does causality run?
+  - Norms &rarr; Behavior
+  - or
+  - Behavior &rarr;  Norms

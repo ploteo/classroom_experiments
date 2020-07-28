@@ -1,0 +1,393 @@
+---
+title: "Report Prolific"
+author: "Matteo Ploner"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+output:
+
+  prettydoc::html_pretty:
+    theme: cayman #hpstr #tactile #hpstr
+    highlight: github
+
+  html_document:
+    number_sections: true
+    toc: true # table of content true
+    toc_depth: 3  # upto three depths of headings (specified by #, ## and ###)
+    toc_float: true
+    theme: cosmo  #united; paper; cerulean
+    highlight: tango  # specifies the syntax highlighting style
+
+  ioslides_presentation:
+    toc: yes
+    toc_depth: 2
+    incremental: no
+    smaller: no
+    widescreen: yes
+    duration: 90
+    self_contained: yes
+
+  slidy_presentation:
+    footer: "FOOTER"
+    duration: 90
+    self_contained: yes
+
+  beamer_presentation: default
+
+  revealjs::revealjs_presentation:
+    reveal_options:
+      slideNumber: true
+      previewLinks: false
+      controls: false
+      navigationMode: linear #grid, default
+    theme: sky #“default”, “simple”, “sky”, “beige”, “serif”, “solarized”, “blood”, “moon”, “night”, “black”, “league” or “white”
+    highlight: pygments
+    slideNumber: true
+
+  pdf_document:
+    keep_tex: true
+    number_sections: true
+    df_print: kable
+documentclass: article
+fontsize: 11pt
+geometry: margin=1in
+
+#css: PATHto/.css
+#bibliography: PATHto/.bib
+---
+
+
+# Sample  {.tabset .tabset-fade .tabset-pills}
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(formattable)
+
+setwd("/Users/matteo/Dropbox/SHARED/GuiltLegitimacy/esperimento_3/data")
+# Prolific ID
+d.p <- read_csv("prolific_id_2020-06-14.csv")
+# Questionnaire
+d.q <- read_csv("demo_questionnaire_2020-06-12.csv")
+
+# Spectators
+d.s <- left_join(
+        left_join(
+          read_csv("guilt_IS_2020-06-12.csv") %>% filter(participant._current_app_name=="prolific_end" & (session.code==	"wdi8mrbe" | session.code=="4kusmblf")),
+          d.p %>% select(participant.code,player.prolific_id),
+          by=c("participant.code")),
+        d.q %>% select(participant.code, player.sex, player.age, player.comment, player.residence ), by=c("participant.code")
+      ) %>% mutate(player.prolific_id=as.factor(player.prolific_id))
+
+# Workers
+d.w <- left_join(read_csv("guilt_W_2020-06-14.csv") %>% filter(participant._current_app_name=="prolific_end" & (session.code==	"gxycjgjn")),
+d.p %>% select(participant.code,player.prolific_id),
+by=c("participant.code"))
+
+```
+
+## Workers
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+d.w %>% select(player.type, participant.code,group.id_in_subsession,player.prolific_id) %>% distinct() %>% kable()
+```
+
+- One A is missing because some dropped out of the task
+
+
+## Spectators
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+d.s %>% kable() %>%
+  row_spec(0,background="black") %>%
+kable_styling(font_size=12,full_width=T) %>%
+scroll_box(height = "400px")
+```
+
+- Sessions: `r d.s %>% distinct(session.code) %>% nrow()`
+`r d.s %>% distinct(session.code) %>% kable() %>% kable_styling()`
+- Participants: `r d.s %>% distinct(participant.code) %>% nrow()`
+
+- Participants per lambda
+
+`r d.s %>% group_by(player.treatment) %>% count() %>% kable() %>% kable_styling()`
+
+### Demographics
+
+- Age
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+d.s %>% group_by(player.age) %>% count() %>% ungroup() %>% mutate(Freq=prop.table(n)) %>% arrange(desc(Freq)) %>% kable() %>% kable_styling()
+```
+
+- Gender
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+d.s %>% group_by(player.sex) %>% count() %>% ungroup() %>% mutate(Freq=prop.table(n)) %>% arrange(desc(Freq))%>% kable() %>% kable_styling()
+```
+- Country
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+d.s %>% group_by(player.residence) %>% count() %>% ungroup() %>% mutate(Freq=prop.table(n)) %>% arrange(desc(Freq))%>% kable() %>% kable_styling()
+
+```
+
+### Comments
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+d.s %>% select(player.comment) %>% na.omit() %>% kable() %>% kable_styling()
+```
+
+## Workers {.tabset .tabset-fade .tabset-pills}
+
+
+# Spectators' choices {.tabset .tabset-fade .tabset-pills}
+
+## Allocations {.tabset .tabset-fade .tabset-pills}
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=12, fig.align="center"}
+#C: 1-> return; 0 -> Not return
+# C_1: 0-25% expectation
+# C_2: 26-50% expectation
+# C_3: 51-75% expectation
+# C_4: 76-100% expectation
+
+d.s %>% select(participant.code,player.treatment,player.C_1,player.C_2,player.C_3,player.C_4) %>% gather("Key","Choice",3:6) %>% group_by(player.treatment,Key) %>% summarise_at("Choice",~mean(.,nar.rm=TRUE)) %>%
+mutate(Key=ifelse(Key=="player.C_1","Bel_0/25",ifelse(Key=="player.C_2","Bel_26/50",ifelse(Key=="player.C_3","Bel_51/75","Bel_75/100")))) %>%
+ggplot(aes(x=as.factor(Key),y=Choice))+
+geom_col(fill="Lightblue",color="black")+
+facet_wrap(.~player.treatment)+
+ theme_bw() +
+ labs(title="Choices of spectators",
+     subtitle="",
+     y = "Freq (rel)",
+     x= "Worker B's Belief",
+     fill="")+ # labels
+theme(legend.position="bottom",
+      axis.text=element_text(size=8),
+      axis.title=element_text(size=14,face="bold"),
+      axis.text.x = element_text(angle = 90, hjust = 1,vjust=0.5)) #axis
+```
+
+## Norms
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=12, fig.align="center"}
+# KW: [[4, 'Very inappropriate'],[3, 'Somewhat inappropriate'],[2,'Somewhat appropriate'],[1,'Very appropriate']]
+# KW_1: 0-25% expectation
+# KW_2: 26-50% expectation
+# KW_3: 51-75% expectation
+# KW_4: 76-100% expectation
+
+d.s %>% select(participant.code,player.treatment,player.KW_1,player.KW_2,player.KW_3,player.KW_4) %>% gather("Key","Choice",3:6) %>% mutate(Choice=ifelse(Choice==4,"Very inappropriate",ifelse(Choice==3,"Somewhat inappropriate",ifelse(Choice==2, "Somewhat appropriate","Very appropriate")))) %>% mutate(Choice=factor(Choice, levels = c("Very inappropriate", "Somewhat inappropriate", "Somewhat appropriate", "Very appropriate"))) %>%
+mutate(Key=ifelse(Key=="player.KW_1","Bel_0/25",ifelse(Key=="player.KW_2","Bel_26/50",ifelse(Key=="player.KW_3","Bel_51/75","Bel_75/100"))))  %>% group_by(player.treatment,Key,Choice) %>% count() %>% ungroup() %>% group_by(Key,player.treatment) %>%
+mutate(Freq=prop.table(n)) %>%
+ggplot(aes(x=as.factor(Choice),y=Freq,fill=as.factor(Choice)))+
+geom_col(color="black")+
+facet_grid(Key~player.treatment)+
+ theme_bw() +
+ labs(title="Spectators' perceived norms",
+     subtitle="",
+     y = "Freq (rel)",
+     x= "Norm",
+     fill="")+ # labels
+theme(legend.position="none",
+      axis.text=element_text(size=8),
+      axis.title=element_text(size=14,face="bold"),
+      axis.text.x = element_text(angle = 90, hjust = 1,vjust=1.5)) #axis
+
+```
+
+# Payments
+
+## Spectators
+
+- At the end of the session, one of the four choices will be randomly selected for payment.
+- For the randomly selected choice, the payment is computed as follows:
+  - choices of all participants in the session who faced the same restoring probability you faced are counted, and the social appropriateness level chosen by the majority is computed;
+    - if your choice <i>is</i> the same as that chosen by the majority, you earn an additional £0.5 (50p);
+    - if your choice <i>is not</i> the same as that chosen by the majority, you earn £0. <p>
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+set.seed(1234)
+rdm.choice <- sample(c("player.KW_1","player.KW_2","player.KW_3","player.KW_4"),1)
+```
+
+Randomly selected belief: `r rdm.choice`
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+d.pay <- full_join(
+d.s %>% select(player.prolific_id,participant.code,player.treatment,player.KW_1,player.KW_2,player.KW_3,player.KW_4) %>% gather("Key","Choice",4:7),
+
+# majority
+d.s %>% select(player.prolific_id,participant.code,player.treatment,player.KW_1,player.KW_2,player.KW_3,player.KW_4) %>% gather("Key","Choice",4:7)  %>%
+group_by(player.treatment,Key,Choice) %>% count() %>% ungroup %>% group_by(player.treatment,Key) %>% filter(n==max(n)) %>% rename(Majority_choice=Choice),
+by=c("player.treatment","Key")
+) %>%
+mutate(Correct_bel=ifelse( Choice==Majority_choice,1,0))
+
+# because we have some tie break
+pay <- d.pay %>% filter( Key == rdm.choice ) %>% group_by(player.prolific_id) %>% summarise_at("Correct_bel",~sum(.)) %>% mutate(bonus_pay=ifelse(Correct_bel==1,.5,0)) %>% mutate(N=1:nrow(.)) %>% select(N,player.prolific_id,bonus_pay)
+
+pay %>% kable() %>% kable_styling()
+```
+
+Spesa totale = `r pay %>% summarise_at("bonus_pay",~sum(.))`
+
+## Workers
+
+### Work
+
+If he/she <b>does not return</b>, Worker A earns £12 and Worker B earns £0.</li>
+<li>	If he/she <b>returns</b>, Worker A earns £9, but Worker B restores his/her reward of £7 only up to a certain restoring probability, that can range between 67% and 100%. The outcome of the restitution in this case is determined with a die roll performed by the computer. When Worker B does not restore his/her reward, the £7 reward is misplaced to an <i>Individual C</i>, who did not do any work. </li>
+
+
+- partial groups (1,2)
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+payoffs <- tibble()
+set.seed(4321)
+# player.type participant.code group.id_in_subsession
+# <chr>       <chr>                             <dbl>
+# 1 C           3fbrtktv                              1
+# 2 B           8sswryeq                              2
+# 3 C           lfmeev60                              2
+
+worker_belief <- d.w %>% filter(group.id_in_subsession==2 & player.type=="B" & subsession.round_number==7) %>% select(player.guess)
+#1)randomly select a spectator and her choice, conditional upon worker B beliefs
+# 1=return
+spectator <- d.s %>% sample_n(1)
+spectator.choice <- spectator %>% select(paste("player.C_",worker_belief,sep="")) %>% pull()
+#2) define restore (according to type of spectator player.treatment)
+#1=restore
+restore <- ifelse(sample(1:6,1)<= spectator %>% select(player.treatment) %>% pull(),1,0)
+
+#3) compute payoffs
+#B
+payoffs <- bind_rows(payoffs,
+d.w %>% filter(player.type=="B" & (group.id_in_subsession==1 |group.id_in_subsession==2) ) %>% mutate(player.payoff=ifelse(spectator.choice==0,0,ifelse(restore==1,7,0))) %>% select(player.prolific_id,player.payoff) %>% distinct()
+)
+#C
+payoffs <- bind_rows(payoffs,
+d.w %>% filter(player.type=="C" & (group.id_in_subsession==1 | group.id_in_subsession==2) ) %>% mutate(player.payoff=ifelse(spectator.choice==0,0,ifelse(restore==1,0,7))) %>% select(player.prolific_id,player.payoff) %>% distinct()
+)
+```
+
+- full group (3)
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+set.seed(1234)
+
+# 4 A           ce58mxbj                              3
+# 5 B           43pabo23                              3
+# 6 C           08mfaoys                              3
+#--------------------------------------
+# group ==3
+# all roles
+#--------------------------------------
+# # player.guess
+# 1= 0-25%
+# 2=25-50%
+# 3=51-75%
+# 4=76-100%
+worker_belief <- d.w %>% filter(group.id_in_subsession==3 & player.type=="B" & subsession.round_number==7) %>% select(player.guess)
+#1)randomly select a spectator and her choice, conditional upon worker B beliefs
+# 1=return
+spectator <- d.s %>% sample_n(1)
+spectator.choice <- spectator %>% select(paste("player.C_",worker_belief,sep="")) %>% pull()
+#2) define restore (according to type of spectator player.treatment)
+#1=restore
+restore <- ifelse(sample(1:6,1)<=spectator %>% select(player.treatment) %>% pull(),1,0)
+#3) compute payoffs
+#A
+payoffs <- bind_rows(payoffs,
+d.w %>% filter(player.type=="A" & group.id_in_subsession==3 ) %>% mutate(player.payoff=ifelse(spectator.choice==0,12,9)) %>% select(player.prolific_id,player.payoff) %>% distinct()
+)
+#B
+payoffs <- bind_rows(payoffs,
+d.w %>% filter(player.type=="B" & group.id_in_subsession==3 ) %>% mutate(player.payoff=ifelse(spectator.choice==0,0,ifelse(restore==1,7,0))) %>% select(player.prolific_id,player.payoff) %>% distinct()
+)
+#C
+payoffs <- bind_rows(payoffs,
+d.w %>% filter(player.type=="C" & group.id_in_subsession==3 ) %>% mutate(player.payoff=ifelse(spectator.choice==0,0,ifelse(restore==1,0,7))) %>% select(player.prolific_id,player.payoff) %>% distinct()
+)
+
+payoffs <- payoffs %>% rename(payoff.game=player.payoff)
+
+```
+
+### Beliefs
+
+<p> To define your bonus payment, we will follow this procedure:</p>
+<ol>
+  <li>We will collect the return choices of all third persons, for all three levels of restoring probability. </li>
+  <li> One return choice of the third person will be randomly drawn.</li>
+  <li> The randomly drawn choice of the third person will be compared with your estimate.</li>
+  <li> The matching between your estimate and the choice of the third person will define your earnings, as from the table below.</li>
+
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+# draw return choice conditional upon their beliefs
+
+return.choice <- d.s %>% select(player.C_1,player.C_2,player.C_3,player.C_4) %>% gather("key","value",1:4)
+#
+workers <- d.w %>% select(player.type, participant.code,group.id_in_subsession,player.prolific_id) %>% distinct()
+
+payoff_bel <- tibble()
+for (i in workers$player.prolific_id){
+   guess <- d.w %>% filter(subsession.round_number==7 & player.prolific_id==i) %>% select(player.guess) %>% pull()
+   return <- sample_n(return.choice %>% filter(key==paste("player.C_",guess,sep="")),1)
+   payoff_bel <- bind_rows(payoff_bel,
+     d.w %>% filter(subsession.round_number==7 & player.prolific_id==i) %>% mutate(
+     payoff = ifelse(guess==1,ifelse(return==0,.5,0),ifelse(guess==2,ifelse(return==0,.44,.28),ifelse(guess==3,ifelse(return==0,.28,.44),ifelse(return==0,0,.5))))) %>% select(player.prolific_id,payoff)
+   )
+}
+
+payoff_bel <- payoff_bel %>% rename(payoff.bel= payoff)
+```
+
+### Total payoffs
+
+Sum of beliefs and game
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=4, fig.width=4, fig.align="center"}
+
+full_join(payoffs, payoff_bel,by=c("player.prolific_id")) %>% mutate(payoff.TOT=payoff.bel + payoff.game)%>% kable() %>% kable_styling()
+#
+# <tr>
+#   <th scope="row">Your earnings if a third person <i>chooses Return</i></th>
+#   <td style="text-align:center">£0.00</td>
+#   <td style="text-align:center">£0.28</td>
+#   <td style="text-align:center">£0.44</td>
+#   <td style="text-align:center">£0.50</td>
+# </tr>
+# <tr>
+#   <th scope="row">Your earnings if a third person <i>does not choose  Return</i></th>
+#   <td style="text-align:center">£0.50</td>
+#   <td style="text-align:center">£0.44</td>
+#   <td style="text-align:center">£0.28</td>
+#   <td style="text-align:center">£0.00</td>
+
+
+
+```
+
+# Appendix
+## Download the data
+
+### Spectators
+
+```{r echo=FALSE}
+write_csv(d.s,"DATA_spectators.csv")
+
+xfun::pkg_load2(c("base64enc", "htmltools", "mime"))
+xfun::embed_file('./DATA_spectators.csv')
+```
+
+### Workers
+
+```{r echo=FALSE}
+write_csv(d.w,"DATA_workers.csv")
+
+xfun::pkg_load2(c("base64enc", "htmltools", "mime"))
+xfun::embed_file('./DATA_workers.csv')
+```

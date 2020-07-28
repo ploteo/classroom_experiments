@@ -1,0 +1,65 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+
+<h1>Results</h1>
+
+<h2> Part 1 </h2>
+<div class="container p-3 my-3 border" style="font-size:18pt">
+
+{% if  type == "Dictator" %}
+      <p>In the firt part of the experiment you were assigned to role {{type}}. </p>
+      <p>Choice {{chosen}} was selected for payment. </p>
+      <p>You chose {{choice}} for this choice. </p>
+      <p>Thus you earn {{payoff_DG}}. </p>
+{% endif %}
+{% if  type == "Recipient" %}
+      <p>In the firt part of the experiment you were assigned to role {{type}}. </p>
+      <p>Choice {{chosen}} was selected for payment. </p>
+      <p>The other chose {{choice}} for this choice. </p>
+      <p>Thus you earn {{payoff_DG}}. </p>
+{% endif %}
+</div>
+
+<h2> Part 2 </h2>
+
+<div class="container p-3 my-3 border" style="font-size:18pt">
+      <p>Choice {{row_chosen}} was selected for payment. </p>
+      <p>You chose <i>{{own_choice}}</i> for this choice. </p>
+      <p>The most common choice was <i>{{most_common}}</i> for this choice. </p>
+      <p>Thus you earn {{payoff_KW}}. </p>
+</div>
+
+<div class="container p-3 my-3 border" style="font-size:18pt">
+<p align="center" style="font-size:22pt">In total you earn {{total_payoff}}</p>
+</div>
+
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:18pt">Finish</span>
+     </button>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

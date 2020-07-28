@@ -1,0 +1,131 @@
+
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.7);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+
+<h1>Instructions (ii)</h1>
+<div class="container p-3 my-3 border" style="font-size:16pt">
+
+You receive here the instructions for <b>Part 2</b>.
+</div>
+
+<div class="container p-3 my-3 border" style="font-size:16pt">
+  <h2> Part 2 </h2>
+
+      <p>You will see again the 11 choices you just saw in Part 1.</p>
+
+      <p>For each of the choices, you will be asked to judge the <i>social appropriateness</i> of each Option A, relative to Option B.  You can choose among 4 levels of social appropriateness:
+<ul>
+  <li>Very appropriate
+    </li>
+      <li>Somewhat appropriate
+        </li>
+        <li>Somewhat inappropriate
+          </li>
+          <li>Very inappropriate
+            </li>
+  </ul>
+      </p>
+
+  <p>  The following is an example of the choice you are going to make. Choices are made by selecting an option from the dropdown menu.</p>
+
+<style>
+  .table-condensed{
+    font-size: 100%;;
+  }
+</style>
+
+    <table class="table table-hover table-condensed">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col"  style="text-align:center; width:5%">#</th>
+        <th scope="col" colspan="2" style="text-align:center; width:20%">Option A</th>
+        <th style="text-align:center; width:0%"> &nbsp;</th>
+        <th scope="col" colspan="2"  style="text-align:center; width:20%">Option B</th>
+        <th style="text-align:center; width:5%""> &nbsp;</th>
+
+        <th scope="col" style="width: 50%; text-align:left; background-color:powderblue;">Social appropriateness of A</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td style="text-align:center"> <i>Self</i>  </td>
+        <td style="text-align:center"> <i>Other</i></td>
+        <th style="text-align:center"> &nbsp;</th>
+
+        <td style="text-align:center"><i>Self</i></td>
+        <td style="text-align:center"><i>Other </i></td>
+        <th style="text-align:center"> &nbsp;</th>
+
+        <td style="font-weight: bold; text-align:right" ></td>
+
+      </tr>
+
+      <tr>
+        <th scope="row">1</th>
+        <td style="text-align:center">{{A_own}} </td>
+        <td style="text-align:center">{{A_other}}</td>
+        <th style="text-align:center"> &nbsp;</th>
+        <td style="text-align:center">{{B}}</td>
+        <td style="text-align:center">{{B}} </td>
+        <th style="text-align:center"> &nbsp;</th>
+
+        <td style="font-weight: bold; text-align:center">{{form.C_0 }}</td>
+      </tr>
+      </tbody>
+      </table>
+      <p style="text-align:center; font-size:14pt" >(<i>The choice on this page has no consequences on your actual earnings.</i>)</p>
+
+<p>On the next page, you will make a choice for each of the 11 allocations you faced in Part 1. Choices are made in a table, and each row contains a choice among the four social appropriateness levels.</p>
+
+<p> At the end of the session, one of the 11 choices will be randomly selected for payment.</p>
+
+<p> The payment is computed as follows:
+<ol>
+  <li> choices of all participants in the session are counted, and the social appropriateness level chosen by the majority is computed;
+    </li>
+    <li> if your choice <i>is</i> the same as that chosen by the majority, you earn an additional 5 tokens; if your choice <i>is not</i> the same as that chosen by the majority, you earn 0 tokens. <p>
+      </li>
+</ol>
+<p> With reference to the options in this page, assume that the majority chose <i>somewhat socially appropriate</i>
+  <ul>
+  <li> if you chose <i>somewhat socially appropriate</i>, you would earn aan dditional {{Constants.payout_KW}} tokens
+  <li> if you chose an option different than <i>somewhat socially appropriate</i>, as an example <i>very socially appropriate</i>, you would earn 0 tokens.
+  </ul>
+</p>
+</div>
+
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+      <i>After having read and understood the instructions, click on the Continue button</i>
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:18pt">Continue</span>
+     </button>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{% endblock %}
+
+{% block content %}
+
+<h1>Results</h1>
+
+<div class="container p-3 my-3 border" style="font-size:18pt">
+  <h2> Part 1 </h2>
+{% if  type == "Dictator" %}
+      <p>In the firt part of the experiment you were assigned to role {{type}}. </p>
+      <p>Choice {{chosen}} was selected for payment. </p>
+      <p>You chose {{choice}} for this choice. </p>
+      <p>Thus you earn {{payoff}}. </p>
+{% endif %}
+{% if  type == "Recipient" %}
+      <p>In the firt part of the experiment you were assigned to role {{type}}. </p>
+      <p>Choice {{chosen}} was selected for payment. </p>
+      <p>The other chose {{choice}} for this choice. </p>
+      <p>Thus you earn {{payoff}}. </p>
+{% endif %}
+</div>
+<div class="container p-3 my-3 border" style="font-size:18pt">
+
+<h2> Part 2 </h2>
+
+</div>
+
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:18pt">Finish</span>
+     </button>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
