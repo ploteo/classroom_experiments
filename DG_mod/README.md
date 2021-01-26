@@ -15,6 +15,7 @@ The software does not compute the payoffs, they are computed offline by R
 >'display_name': "L_dict_social_norms",
 >'num_demo_participants': 5,
 >'app_sequence': ['mod_DG','dict_KW'], #possibility to add 'id' at the beginning and 'demo_questionnaire' at the end
+
 >'language':"en"
 >}
 
